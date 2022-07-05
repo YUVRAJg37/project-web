@@ -2,6 +2,8 @@ import React from "react";
 import styled, { css } from "styled-components/macro";
 import { Link } from "react-router-dom";
 import { menuData } from "../data/Menudata";
+import { Button } from "./Button";
+import { FaBars } from "react-icons/fa";
 
 const Nav = styled.nav`
   height: 60px;
@@ -12,7 +14,7 @@ const Nav = styled.nav`
   z-index: 100px;
   position: fixed;
   width: 100%;
-  background: #000;
+  background: green;
 `;
 
 const NavLink = css`
@@ -30,12 +32,45 @@ const Logo = styled(Link)`
   font-style: italic;
 `;
 
-const MenuBars = styled.i``;
+const MenuBars = styled(FaBars)`
+  display: none;
 
-const NavMenu = styled.div``;
+  @media screen and (max-width: 768px) {
+    display: block;
+    height: 30px;
+    width: 30px;
+    background-size: contain;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    &:hover {
+      transform: scale3d(1.2, 1, 1);
+    }
+  }
+`;
+
+const NavMenu = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: -48px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
 
 const NavMenuLinks = styled(Link)`
   ${NavLink}
+`;
+
+const NavButton = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 64px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Navbar = () => {
@@ -51,6 +86,11 @@ const Navbar = () => {
           </NavMenuLinks>
         ))}
       </NavMenu>
+      <NavButton>
+        <Button to="/contact" primary="true">
+          Contact US
+        </Button>
+      </NavButton>
     </Nav>
   );
 };
