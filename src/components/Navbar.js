@@ -6,15 +6,14 @@ import { Button } from "./Button";
 import { FaBars } from "react-icons/fa";
 
 const Nav = styled.nav`
-  height: 60px;
+  height: 70px;
   display: flex;
-  background: black;
   justify-content: space-between; //space between two components
   padding: 16px 32px;
-  z-index: 100px;
+  z-index: 100;
   position: fixed;
   width: 100%;
-  background: green;
+  background: black;
 `;
 
 const NavLink = css`
@@ -34,6 +33,7 @@ const Logo = styled(Link)`
 
 const MenuBars = styled(FaBars)`
   display: none;
+  color: white;
 
   @media screen and (max-width: 768px) {
     display: block;
